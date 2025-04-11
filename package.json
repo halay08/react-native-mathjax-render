@@ -1,0 +1,59 @@
+{
+  "name": "react-native-mathjax-render",
+  "version": "0.0.1",
+  "description": "Render LaTeX code in React Native Webview",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c --watch",
+    "prepare": "npm run build",
+    "prebuild": "npm run clean",
+    "clean": "rimraf dist",
+    "commit": "cz",
+    "semantic-release": "semantic-release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:halay08/react-native-mathjax-render.git"
+  },
+  "keywords": [
+    "react",
+    "native",
+    "mathjax",
+    "latex",
+    "maths",
+    "equation"
+  ],
+  "author": "Calvin Kei <calvin.conceptz@gmail.com> (https://www.linkedin.com/in/chi-wing-kei-237364140/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/halay08/react-native-mathjax-render-render/issues"
+  },
+  "homepage": "https://github.com/halay08/react-native-mathjax-render-render#readme",
+  "devDependencies": {
+    "@semantic-release/git": "^10.0.1",
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.1.0",
+    "commitizen": "^4.3.1",
+    "esbuild": "^0.25.2",
+    "husky": "^9.1.7",
+    "prettier": "^3.5.3",
+    "react": "^19.1.0",
+    "react-native": "^0.79.0",
+    "react-native-webview": "^13.13.5",
+    "rimraf": "^6.0.1",
+    "rollup": "^4.39.0",
+    "rollup-plugin-dts": "^6.2.1",
+    "rollup-plugin-esbuild": "^6.2.1",
+    "semantic-release": "^24.2.3",
+    "typescript": "^5.8.3"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-native": ">=0.76.0",
+    "react-native-webview": ">=13.13.5"
+  }
+}
