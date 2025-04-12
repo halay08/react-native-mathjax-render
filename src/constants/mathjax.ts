@@ -12,4 +12,4 @@ export const DEFAULT_MATH_JAX_OPTIONS = {
 	}
 };
 
-export const DEFAULT_MATH_JAX_HEIGHT = 1000
+export const DEFAULT_MATH_JAX_HEIGHT = 85

@@ -1,5 +1,5 @@
 {
-  "name": "react-native-mathjax-render",
+  "name": "react-native-mathjax-webview",
   "version": "0.0.1",
   "description": "Render LaTeX code in React Native Webview",
   "type": "module",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:halay08/react-native-mathjax-render.git"
+    "url": "git@github.com:halay08/react-native-mathjax-webview.git"
   },
   "keywords": [
     "react",
@@ -27,12 +27,12 @@
     "maths",
     "equation"
   ],
-  "author": "Calvin Kei <calvin.conceptz@gmail.com> (https://www.linkedin.com/in/chi-wing-kei-237364140/)",
+  "author": "Ken Le <ken@kenstack.io> (https://www.linkedin.com/in/halay08/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/halay08/react-native-mathjax-render-render/issues"
+    "url": "https://github.com/halay08/react-native-mathjax-webview-render/issues"
   },
-  "homepage": "https://github.com/halay08/react-native-mathjax-render-render#readme",
+  "homepage": "https://github.com/halay08/react-native-mathjax-webview-render#readme",
   "devDependencies": {
     "@semantic-release/git": "^10.0.1",
     "@types/node": "^22.14.0",

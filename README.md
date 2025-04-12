@@ -1,6 +1,6 @@
 # React Native LateX Render
 
-[![Release NPM package](https://github.com/halay08/react-native-mathjax-render/actions/workflows/release.yml/badge.svg)](https://github.com/halay08/react-native-mathjax-render/actions/workflows/release.yml)
+[![Release NPM package](https://github.com/halay08/react-native-mathjax-webview/actions/workflows/release.yml/badge.svg)](https://github.com/halay08/react-native-mathjax-webview/actions/workflows/release.yml)
 [![npm version](https://badge.fury.io/js/npm.svg)](https://badge.fury.io/js/angular2-expandable-list)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
@@ -10,7 +10,7 @@ Thanks to [Calvin Kei](https://github.com/calvinkei) for building the base code.
 
 # Installation
 
-1. `yarn add react-native-mathjax-render` or `npm install react-native-mathjax-render --save`
+1. `yarn add react-native-mathjax-webview` or `npm install react-native-mathjax-webview --save`
 2. Install [react-native-webview](https://www.npmjs.com/package/react-native-webview)
 
 # Usage

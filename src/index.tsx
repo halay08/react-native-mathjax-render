@@ -1,21 +1,32 @@
-import { StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native'
+import { Dimensions, StyleProp, StyleSheet, View, ViewStyle } from 'react-native'
 import React, { useMemo, useState } from 'react'
-import { WebView } from 'react-native-webview';
+import { WebView, WebViewMessageEvent, WebViewProps } from 'react-native-webview';
 import { DEFAULT_MATH_JAX_OPTIONS, DEFAULT_MATH_JAX_HEIGHT } from './constants'
 
-interface MathJaxProps {
+interface MathJaxProps extends WebViewProps {
   html: string
+	width?: number
+	height?: number
   mathJaxOptions?: Record<string, any>
 	style?: StyleProp<ViewStyle>
+	onMessage?: (event: WebViewMessageEvent, width?: number, height?: number) => void
+	loader?: React.ReactNode
 }
 
 const MathJax = (props: MathJaxProps) => {
-  const [height, setHeight] = useState(DEFAULT_MATH_JAX_HEIGHT)
+	const [loading, setLoading] = useState(true)
+  const [height, setHeight] = useState(props.height ?? DEFAULT_MATH_JAX_HEIGHT)
+	const [width, setWidth] = useState(props.width ?? Dimensions.get('window').width)
 
-  const handleMessage = (event: any) => {
-    if (isFinite(Number(event.nativeEvent.data))) {
-      setHeight(Number(event.nativeEvent.data))
+  const handleMessage = (event: WebViewMessageEvent) => {
+    const data = JSON.parse(event.nativeEvent.data);
+    if (isFinite(Number(data.height))) {
+      setHeight(Number(data.height))
     }
+		if (isFinite(Number(data.width))) {
+			setWidth(Number(data.width))
+		}
+    props.onMessage?.(event, width, height)
   }
 
 	// Wrap MathJax in a WebView. 
@@ -63,8 +74,12 @@ const MathJax = (props: MathJaxProps) => {
 				<WebView
 					scrollEnabled={false}
 					onMessage={handleMessage}
+					loader={props.loader}
 					source={{ html: mathJaxHtml }}
+					onLoadStart={() => setLoading(true)}
+					onLoadEnd={() => setLoading(false)}
 					{...maxJaxProps}
+					loading={loading}
 				/>
 			</View>
   )
