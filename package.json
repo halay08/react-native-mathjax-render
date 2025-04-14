@@ -1,6 +1,6 @@
 {
   "name": "react-native-mathjax-webview",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Render LaTeX code in React Native Webview",
   "type": "module",
   "main": "./dist/index.js",
@@ -24,6 +24,7 @@
     "native",
     "mathjax",
     "latex",
+    "katex",
     "maths",
     "equation"
   ],

@@ -48,13 +48,11 @@ const MathJax = (props) => {
 						height,
 						width
 					}));
-
-					document.getElementById("formula").style.visibility = '';
 				});
 			<\/script>
 
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js"><\/script>
-			<div id="formula" style="visibility: hidden;">
+			<div id="formula">
 				${content}
 			</div>
 		`;
@@ -69,14 +67,14 @@ const MathJax = (props) => {
     {
       scrollEnabled: false,
       onMessage: handleMessage,
-      loader: props.loader,
       source: { html: mathJaxHtml },
       onLoadStart: () => setLoading(true),
-      onLoadEnd: () => setLoading(false),
+      onLoadEnd: () => setTimeout(() => setLoading(false), 500),
+      onLoadProgress: () => setTimeout(() => setLoading(false), 500),
       ...maxJaxProps,
       loading
     }
-  ));
+  ), loading && props.loader);
 };
 StyleSheet.create({});
 

@@ -1,4 +1,4 @@
-import { Dimensions, StyleProp, StyleSheet, View, ViewStyle } from 'react-native'
+import { Dimensions, StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native'
 import React, { useMemo, useState } from 'react'
 import { WebView, WebViewMessageEvent, WebViewProps } from 'react-native-webview';
 import { DEFAULT_MATH_JAX_OPTIONS, DEFAULT_MATH_JAX_HEIGHT } from './constants'
@@ -49,13 +49,11 @@ const MathJax = (props: MathJaxProps) => {
 						height,
 						width
 					}));
-
-					document.getElementById("formula").style.visibility = '';
 				});
 			</script>
 
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js"></script>
-			<div id="formula" style="visibility: hidden;">
+			<div id="formula">
 				${content}
 			</div>
 		`;
@@ -71,16 +69,17 @@ const MathJax = (props: MathJaxProps) => {
 
   return (
     <View style={[props.style, { height }]}>
-				<WebView
+				{<WebView
 					scrollEnabled={false}
 					onMessage={handleMessage}
-					loader={props.loader}
 					source={{ html: mathJaxHtml }}
 					onLoadStart={() => setLoading(true)}
-					onLoadEnd={() => setLoading(false)}
+					onLoadEnd={() => setTimeout(() => setLoading(false), 500)}
+					onLoadProgress={() => setTimeout(() => setLoading(false), 500)}
 					{...maxJaxProps}
 					loading={loading}
-				/>
+				/>}
+				{loading && props.loader}
 			</View>
   )
 }
